@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import Loader from "./Loader.js";
 import axios from "axios";
 
-require("dotenv").config();
+const dotenv = require("dotenv");
+dotenv.config();
 
 function Home() {
   const [loading, setLoading] = useState(true);
