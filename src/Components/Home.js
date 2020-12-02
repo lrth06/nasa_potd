@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Loader from "./Loader.js";
 import axios from "axios";
-
-const dotenv = require("dotenv");
-dotenv.config();
+// import dotenv from "dotenv";
+// dotenv.config();
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -35,14 +34,12 @@ function Home() {
     fetchData();
   };
 
-  const NASA_KEY = process.env.NASA_KEY;
+  const key = process.env.REACT_APP_NASA_KEY;
   const fetchData = () => {
     setLoading(true);
     try {
       axios
-        .get(
-          `https://api.nasa.gov/planetary/apod?api_key=${NASA_KEY}&date=${date}`
-        )
+        .get(`https://api.nasa.gov/planetary/apod?api_key=${key}&date=${date}`)
         .then((res) => {
           console.log(res);
           setLoading(false);
